@@ -71,6 +71,87 @@ html {
   color: var(--primary);
 }
 
+/* navbar search form */
+ .navbar .search-form {
+  position: absolute;
+  top: 100%;
+  right: 7%;
+  background-color: #fff;
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.navbar .search-form.active {
+  transform: scaleY(1);
+}
+
+.navbar .search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6 rem;
+  color: var(--bg);
+  padding: 1rem;
+}
+
+.navbar .search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--bg);
+}
+
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -100%; /* awalnya tersembunyi */
+  height: auto;
+  width: 35rem;
+  background-color: #222;
+  padding: 1.5rem;
+  color: #fff;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.shopping-cart.active {
+  right: 0; /* tampilkan cart */
+}
+
+.shopping-cart .cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shopping-cart .cart-item img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.shopping-cart .item-detail h3 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.shopping-cart .item-price {
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.shopping-cart .remove-item {
+  margin-left: auto;
+  cursor: pointer;
+  color: red;
+}
+
+
 /* Hide Hamburger by Default */
 #hamburger-menu {
   display: none;
@@ -218,11 +299,13 @@ html {
 }
 
 /* Menu Section */
-.menu {
+.menu 
+.product {
   padding: 10rem 7% 1.4;
 }
 
-.menu h2 {
+.menu h2
+.product h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 4rem;
@@ -230,11 +313,13 @@ html {
   margin: 5rem;
 }
 
-.menu h2 span {
+.menu h2 span
+.product h2 span {
   color: #fff;
 }
 
-.menu p {
+.menu p 
+.product p{
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -274,6 +359,72 @@ html {
   font-size: 1.5rem;
 }
 
+/* PRODUK */
+.product .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.product .product-card {
+  text-align: center;
+  border: 1PX solid #666;
+  padding: 2rem;
+}
+
+.product .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5 rem;
+}
+
+.product .product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  margin: 0.3 rem;
+  border-radius: 50%;
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.product .product-icons a:hover {
+  background-color: var(--bg);
+  border: 1px solid var(--primary);
+}
+
+.product .product-image img {
+  height: 25rem;
+
+}
+
+.product .product-content h3 {
+  font-size: 2rem;
+}
+
+.product .product-stars {
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  color: var(--primary);
+}
+
+.product .product-stars .star-full {
+  fill: var(--primary);
+
+}
+
+.product .product-price span {
+  text-decoration: line-through;
+  font-weight: lighter;
+  font-size: 1rem;
+
+}
+.product .product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
 .contact {
   padding: 3rem 7% 1.4;
 }
