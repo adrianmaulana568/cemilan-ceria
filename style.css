@@ -338,21 +338,21 @@ html {
 
 .menu .row .menu-card {
   text-align: center;
-  margin: 1rem; /* Add spacing between each card */
-  flex: 1 1 30%; /* Flexbox settings to control the number of items per row */
-  max-width: 30%; /* Ensure that the max width of each card is equal */
+  margin: 1rem; 
+  flex: 1 1 30%; 
+  max-width: 30%; 
   padding-bottom: 3rem;
 }
 
 .menu .row .menu-card img {
-  border-radius: 50%; /* Round image */
-  width: 100%; /* Make the image fill the container */
-  height: 100%; /* Ensure the image has equal height */
-  object-fit: cover; /* Cover the space in a way that maintains the aspect ratio */
+  border-radius: 50%; 
+  width: 100%; /
+  height: 100%; 
+  object-fit: cover; 
 }
 
 .menu .row .menu-card .menu-card-title {
-  margin-top: 1.5rem; /* Adjust the space between the image and the title */
+  margin-top: 1.5rem; 
 }
 
 .menu p {
