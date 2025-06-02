@@ -72,7 +72,7 @@ html {
 }
 
 /* navbar search form */
- .navbar .search-form {
+.navbar .search-form {
   position: absolute;
   top: 100%;
   right: 7%;
@@ -104,6 +104,24 @@ html {
   margin-right: 1.5rem;
   color: var(--bg);
 }
+/* shopping cart */
+#search {
+  position: relative;
+}
+
+#search .quantity-badge {
+  display: inline-block;
+  padding: 1px 5px;
+  color: red;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  text-decoration: none;
+}
+
+
 
 .shopping-cart {
   position: absolute;
@@ -116,6 +134,7 @@ html {
   color: #fff;
   transition: right 0.3s ease;
   z-index: 999;
+  transition: 0, 3s;
 }
 
 .shopping-cart.active {
@@ -129,14 +148,14 @@ html {
 }
 
 .shopping-cart .cart-item img {
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   object-fit: cover;
   margin-right: 1rem;
 }
 
 .shopping-cart .item-detail h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
@@ -145,13 +164,72 @@ html {
   color: var(--primary);
 }
 
-.shopping-cart .remove-item {
-  margin-left: auto;
+.shopping-cart .cart-item #add,
+.shopping-cart .cart-item #remove {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 0 8px;
   cursor: pointer;
-  color: red;
+  background-color: #010101;
+  color: wheat;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
+.shopping-cart h4 {
+  font-size: 1.6rem;
+  margin-top: -1rem;
+  text-align: center;
+}
 
+.form-container {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 0 8px;
+  cursor: pointer;
+  background-color: #010101;
+  color: wheat;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.form-container h5 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-container form {
+  text-align: center;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: white;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+}
+
+.form-container .checkout-button {
+  padding: 6px 14px;
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin: 1rem auto;
+  cursor: pointer;
+}
 /* Hide Hamburger by Default */
 #hamburger-menu {
   display: none;
@@ -299,27 +377,23 @@ html {
 }
 
 /* Menu Section */
-.menu 
-.product {
+.menu .product {
   padding: 10rem 7% 1.4;
 }
 
-.menu h2
-.product h2 {
+.menu h2 {
   text-align: center;
   font-size: 2.6rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   color: var(--primary);
   margin: 5rem;
 }
 
-.menu h2 span
-.product h2 span {
+.menu h2 span {
   color: #fff;
 }
 
-.menu p 
-.product p{
+.menu p .product p {
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -338,21 +412,21 @@ html {
 
 .menu .row .menu-card {
   text-align: center;
-  margin: 1rem; 
-  flex: 1 1 30%; 
-  max-width: 30%; 
+  margin: 1rem; /* Add spacing between each card */
+  flex: 1 1 30%; /* Flexbox settings to control the number of items per row */
+  max-width: 30%; /* Ensure that the max width of each card is equal */
   padding-bottom: 3rem;
 }
 
 .menu .row .menu-card img {
-  border-radius: 50%; 
-  width: 100%; /
-  height: 100%; 
-  object-fit: cover; 
+  border-radius: 50%; /* Round image */
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Ensure the image has equal height */
+  object-fit: cover; /* Cover the space in a way that maintains the aspect ratio */
 }
 
 .menu .row .menu-card .menu-card-title {
-  margin-top: 1.5rem; 
+  margin-top: 1.5rem; /* Adjust the space between the image and the title */
 }
 
 .menu p {
@@ -360,71 +434,106 @@ html {
 }
 
 /* PRODUK */
+.product h2 {
+  margin: 5rem;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.product h2 span {
+  color: var(--primary);
+}
+.product p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 80;
+  line-height: 1.6;
+}
+
 .product .row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2rem;
   margin-top: 4rem;
 }
 
 .product .product-card {
-  text-align: center;
-  border: 1PX solid #666;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 8px;
   padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product .product-card:hover {
+  transform: scale(1.03);
+  border-color: var(--primary);
 }
 
 .product .product-icons {
   display: flex;
   justify-content: center;
-  gap: 0.5 rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .product .product-icons a {
-  width: 4rem;
-  height: 4rem;
   color: #fff;
-  margin: 0.3 rem;
+  font-size: 1.5rem;
+  background-color: #333;
+  padding: 0.8rem;
   border-radius: 50%;
-  display: contents;
-  justify-content: center;
-  align-items: center;
+  transition: background-color 0.3s ease;
 }
 
 .product .product-icons a:hover {
-  background-color: var(--bg);
-  border: 1px solid var(--primary);
+  background-color: var(--primary);
 }
 
 .product .product-image img {
-  height: 25rem;
-
+  height: 20rem;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
 }
 
 .product .product-content h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  margin: 1rem 0;
 }
 
 .product .product-stars {
-  font-size: 1.7rem;
-  padding: 0.8rem;
   color: var(--primary);
+  margin-bottom: 1rem;
 }
 
 .product .product-stars .star-full {
   fill: var(--primary);
-
 }
 
-.product .product-price span {
-  text-decoration: line-through;
-  font-weight: lighter;
-  font-size: 1rem;
-
-}
 .product .product-price {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  color: #fff;
   font-weight: bold;
 }
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.product-price .discount {
+  text-decoration: line-through;
+  color: #999;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
 .contact {
   padding: 3rem 7% 1.4;
 }
@@ -616,3 +725,5 @@ footer .creadit a {
     font-size: 55%;
   }
 }
+
+
