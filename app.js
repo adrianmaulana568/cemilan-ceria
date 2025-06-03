@@ -1,4 +1,5 @@
 document.addEventListener("alpine:init", () => {
+  // 🔹 DATA PRODUK
   Alpine.data("products", () => ({
     items: [
       {
@@ -25,14 +26,17 @@ document.addEventListener("alpine:init", () => {
     ],
   }));
 
+  //  KERANJANG BELANJA (STATE GLOBAL)
   Alpine.store("cart", {
     items: [],
     total: 0,
     quantity: 0,
+    maxQuantity: 30, //  
 
     add(newItem) {
-      const existingItem = this.items.find(item => item.id === newItem.id);
+      if (this.quantity >= this.maxQuantity) return;
 
+      const existingItem = this.items.find(item => item.id === newItem.id);
       if (!existingItem) {
         this.items.push({
           ...newItem,
@@ -49,6 +53,8 @@ document.addEventListener("alpine:init", () => {
     },
 
     increase(item) {
+      if (this.quantity >= this.maxQuantity) return;
+
       const target = this.items.find(i => i.id === item.id);
       if (target) {
         target.quantity++;
@@ -73,7 +79,7 @@ document.addEventListener("alpine:init", () => {
     },
   });
 
-  // Fungsi untuk format mata uang
+  // 🔹 Format Rupiah (fungsi biasa tapi dipakai di Alpine juga)
   window.rupiah = function (value) {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -81,6 +87,3 @@ document.addEventListener("alpine:init", () => {
     }).format(value);
   };
 });
-
-
-
